@@ -1,0 +1,48 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  p {
+    font-size: 58px;
+    font-weight: 500;
+    color: #a5a5ab;
+    position: relative;
+
+    &::before {
+      content: attr(data-text);
+      position: absolute;
+      color: #0070ef;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 4px solid #0070ef;
+      animation: move 8s linear infinite;
+      // filter: drop-shadow(0 0 20px #0070EF) drop-shadow(0 0 50px #0070EF);
+    }
+
+    @keyframes move {
+      0%,
+      10%,
+      100% {
+        width: 0;
+      }
+      70%,
+      90% {
+        width: 100%;
+      }
+    }
+  }
+
+  &.light {
+    p {
+      color: #a5a5ab;
+
+      &::before {
+        color: #0070ef;
+        border-right: 4px solid #0070ef;
+        // filter: drop-shadow(0 0 20px #0070EF) drop-shadow(0 0 50px #0070EF);
+      }
+    }
+  }
+}
